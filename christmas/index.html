@@ -72,7 +72,8 @@
 {"title":"Phantom of the Opera, Kelly had developed a passion for musical theater, especially the works of Andrew Lloyd Webber. So, when the Phantom of the Opera came into the same region as Thailand, his mother was sure to book flights","latitude":1.3624, "longitude": 103.8346, "content":" hotels and tickets to the show. Even taking along Kelly's friend when the Father couldn't make it. He was enchanted by the performance and lived every minute of that trip.", "picture":""},
 {"title":"Night Zoo","latitude":1.403782, "longitude": 103.79414, "content":" the personal passion of the youngest gerritz towards animal can be discribed through his fasicination with the singapore night zoo. As well as his fascination with eating strange animals resulting in a delicious kangaroo burger.", "picture":""}];
 
-  var latitude, longitude;
+  var latitude;
+  var longitude;
   console.log("Got rid of memories");
 
     function storeLocal(position){
@@ -81,14 +82,13 @@
     }
 
       function initialize() {
-        navigator.geolocation.getCurrentPosition(storeLocal);
+        //navigator.geolocation.getCurrentPosition(storeLocal);
         var mapOptions = {
-          center: new google.maps.LatLng(latitude, longitude),
-          zoom: 13,
+          zoom: 11,
+          center: new google.maps.LatLng(-34.397, 150.644),
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
       var marks = new Object();
 
@@ -103,6 +103,9 @@
         google.maps.event.addListener(current.marker, "click", (function(curr){
          return function() {
              var content = current["content"];
+             if(current.photo!=""){
+
+             }
              var newWind = new google.maps.InfoWindow({
                             content: content,
                             position: curr.marker.getPosition() });
