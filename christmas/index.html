@@ -75,7 +75,7 @@
 
       function initialize() {
         var mapOptions = {
-          zoom: 5,
+          zoom: 3,
           center: new google.maps.LatLng(40.3728, -105.5192),
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
@@ -96,7 +96,7 @@
          return function() {
              var content = "<p>" + curr.cont + "</p>";
              if(curr.photo!=""){
-              content += "<img src =\"images/" + curr.photo + "\" height =50 width =50 />";
+              content += "<img src =\"images/" + curr.photo + "\" height =100 width =100 />";
              }
              var newWind = new google.maps.InfoWindow({
                             content: content,
