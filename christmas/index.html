@@ -76,7 +76,7 @@
 
       function initialize() {
         var mapOptions = {
-          zoom: 16,
+          zoom: 5,
           center: new google.maps.LatLng(40.3728, -105.5192),
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
@@ -94,14 +94,14 @@
         var current = marks[x];
         google.maps.event.addListener(current.marker, "click", (function(curr){
          return function() {
-             var content = current["content"];
-             if(current.photo!=""){
-
+             var content = curr["content"];
+             if(curr.photo!=""){
+              content += "<img src =\"/images/" + curr.photo + "\" height =50 width =50 />";
              }
              var newWind = new google.maps.InfoWindow({
                             content: content,
                             position: curr.marker.getPosition() });
-                             newWind.open(map);
+            newWind.open(map);
     
            }})(current));
 
