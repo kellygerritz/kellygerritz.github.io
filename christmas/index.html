@@ -79,7 +79,7 @@
       function initialize() {
         navigator.geolocation.getCurrentPosition(storeLocal);
         var mapOptions = {
-          center: new google.maps.LatLng(latitude, longitude,
+          center: new google.maps.LatLng(latitude, longitude),
           zoom: 13
         };
         var map = new google.maps.Map(document.getElementById("map-canvas"),
