@@ -72,7 +72,6 @@
 {"title":"Phantom of the Opera, Kelly had developed a passion for musical theater, especially the works of Andrew Lloyd Webber. So, when the Phantom of the Opera came into the same region as Thailand, his mother was sure to book flights","latitude":1.3624, "longitude": 103.8346, "content":" hotels and tickets to the show. Even taking along Kelly's friend when the Father couldn't make it. He was enchanted by the performance and lived every minute of that trip.", "picture":""},
 {"title":"Night Zoo","latitude":1.403782, "longitude": 103.79414, "content":" the personal passion of the youngest gerritz towards animal can be discribed through his fasicination with the singapore night zoo. As well as his fascination with eating strange animals resulting in a delicious kangaroo burger.", "picture":""}];
 
-    console.log("Changed center");
 
       function initialize() {
         var mapOptions = {
@@ -86,6 +85,7 @@
 
       for(x in memories){
         marks[x] = new Object();
+        marks[x].cont = memories[x]["content"];
         marks[x].photo = memories[x]["picture"];
         marks[x].marker =  new google.maps.Marker();
         marks[x].marker.setMap(map);
@@ -94,7 +94,7 @@
         var current = marks[x];
         google.maps.event.addListener(current.marker, "click", (function(curr){
          return function() {
-             var content = curr["content"];
+             var content = "<p>" + curr.cont + "</p>";
              if(curr.photo!=""){
               content += "<img src =\"/images/" + curr.photo + "\" height =50 width =50 />";
              }
